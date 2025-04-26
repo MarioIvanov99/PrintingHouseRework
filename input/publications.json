@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Java Fundamentals",
+    "publishingDate": "2024-01-15",
+    "numberOfPages": 300,
+    "paperSize": "A4",
+    "coverType": "HARD_COVER",
+    "type": "Book",
+    "salePrice": 24.99
+  },
+  {
+    "title": "The Daily Bugle",
+    "publishingDate": "2024-02-01",
+    "numberOfPages": 10,
+    "paperSize": "A3",
+    "type": "Newspaper",
+    "salePrice": 2.50
+  },
+  {
+    "title": "Avengers Movie Poster",
+    "publishingDate": "2024-03-05",
+    "paperSize": "A2",
+    "type": "Poster",
+    "salePrice": 10.00
+  },
+  {
+    "title": "Design Patterns",
+    "publishingDate": "2024-03-20",
+    "numberOfPages": 450,
+    "paperSize": "A5",
+    "coverType": "SOFT_COVER",
+    "type": "Book",
+    "salePrice": 20.00
+  }
+]

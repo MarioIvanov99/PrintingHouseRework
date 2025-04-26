@@ -1,0 +1,54 @@
+package org.printinghouse.service;
+
+import junit.framework.TestCase;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.printinghouse.model.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
+
+public class PrintingHouseServiceTestIntegration extends TestCase {
+    private PrintingHouseService printingHouseService;
+    private PublicationService publicationService;
+    private Catalogue catalogue;
+    private Book book;
+    private Order order;
+
+    @BeforeEach
+    public void setUp() {
+        publicationService = new PublicationService();
+        printingHouseService = new PrintingHouseService(publicationService);
+        catalogue = new Catalogue(new HashSet<>());
+        book = new Book("Test Book", LocalDate.now(), 200, PaperSize.A4, CoverType.HARD_COVER, new BigDecimal("30.00"));
+        order = new Order(book.getId(), 5);
+        publicationService.addPublication(catalogue, book);
+    }
+
+    @Test
+    void testCalculateExpenseReturnsCorrectCost_INTEGRATION() {
+        BigDecimal expense = printingHouseService.calculateExpense(catalogue, List.of(order));
+        assertEquals(new BigDecimal("66.00"), expense);
+    }
+
+    @Test
+    void testCalculateIncomeReturnsCorrectIncome_INTEGRATION() {
+        BigDecimal income = printingHouseService.calculateIncome(catalogue, List.of(order));
+        assertEquals(new BigDecimal("150.00"), income);
+    }
+
+    @Test
+    void testCalculateProfitReturnsCorrectProfit_INTEGRATION() {
+        BigDecimal profit = printingHouseService.calculateProfit(catalogue, List.of(order));
+        assertEquals(new BigDecimal("84.00"), profit);
+    }
+
+    @Test
+    void testCalculateProfitReturnsCorrectNetProfit_INTEGRATION() {
+        BigDecimal netProfit = printingHouseService.calculateNetProfit(catalogue, List.of(order));
+        assertEquals(new BigDecimal("75.6000"), netProfit);
+    }
+
+}

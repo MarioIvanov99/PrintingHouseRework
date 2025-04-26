@@ -1,0 +1,18 @@
+[
+  {
+    "publicationId": 1,
+    "copies": 500
+  },
+  {
+    "publicationId": 2,
+    "copies": 1000
+  },
+  {
+    "publicationId": 3,
+    "copies": 250
+  },
+  {
+    "publicationId": 4,
+    "copies": 300
+  }
+]
